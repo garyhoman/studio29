@@ -145,7 +145,7 @@ a {
 @media (min-width: 48rem) {
   .hero {
     min-height: calc(100svh - var(--header-height));
-    padding: clamp(1.2rem, 2.6vw, 1.9rem) 0 clamp(1rem, 2vw, 1.75rem);
+    padding: clamp(1.45rem, 3vw, 2.2rem) 0 clamp(1rem, 2vw, 1.75rem);
     overflow: hidden;
   }
 
@@ -1005,7 +1005,7 @@ a {
 
 @media (max-height: 45rem) and (min-width: 48rem) {
   .hero {
-    padding-top: 1rem;
+    padding-top: 1.15rem;
     padding-bottom: 0.9rem;
   }
 
@@ -1102,7 +1102,7 @@ a {
     height: auto;
     display: block;
     overflow: visible;
-    padding-top: 1.2rem;
+    padding-top: 1.45rem;
   }
 
   .header-inner {
@@ -1123,7 +1123,7 @@ a {
     height: auto;
     grid-template-columns: 1fr;
     align-items: start;
-    gap: 1.15rem;
+    gap: 1.35rem;
   }
 
   .message-card {
@@ -1244,7 +1244,7 @@ a {
 
   .site-preview-video,
   .feature-video {
-    object-position: center 30%;
+    object-position: center 24%;
   }
 
   .site-preview-eyebrow {
@@ -1318,6 +1318,6 @@ a {
 
   .site-preview-video,
   .feature-video {
-    object-position: center 20%;
+    object-position: center 12%;
   }
 }
