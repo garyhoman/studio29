@@ -1236,7 +1236,7 @@ a {
     height: auto;
     grid-template-columns: 1fr;
     align-items: start;
-    gap: 1.35rem;
+    gap: 1.1rem;
   }
 
   .message-card {
@@ -1284,11 +1284,11 @@ a {
 
   .hero-device {
     height: auto;
-    padding-top: 0.2rem;
+    padding-top: 0;
   }
 
   .phone-shell {
-    width: min(76vw, 18rem);
+    width: min(85vw, 20.75rem);
     aspect-ratio: 0.52 / 1;
     max-height: none;
     border-radius: 2.3rem;
