@@ -1277,7 +1277,7 @@ a {
   }
 
   .phone-shell {
-    width: min(90vw, 22.5rem);
+    width: min(83vw, 20.75rem);
     aspect-ratio: 393 / 852;
     max-height: none;
     border-radius: 2.3rem;
