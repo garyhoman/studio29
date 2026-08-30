@@ -1,6 +1,9 @@
 const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll(".site-nav a");
 const featureVideo = document.querySelector("[data-feature-video]");
+const siteNav = document.querySelector(".site-nav");
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const previewShell = document.querySelector(".site-preview-shell");
 
 const setActiveLink = (id) => {
   navLinks.forEach((link) => {
@@ -31,10 +34,44 @@ if ("IntersectionObserver" in window && sections.length > 0) {
   sections.forEach((section) => observer.observe(section));
 }
 
+if (mobileMenuToggle && siteNav) {
+  const setMobileMenu = (open) => {
+    mobileMenuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    mobileMenuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    siteNav.classList.toggle("is-open", open);
+  };
+
+  mobileMenuToggle.addEventListener("click", () => {
+    const expanded = mobileMenuToggle.getAttribute("aria-expanded") === "true";
+    setMobileMenu(!expanded);
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => setMobileMenu(false));
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
+      setMobileMenu(false);
+    }
+  });
+}
+
 if (featureVideo) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  const syncPreviewAspectRatio = () => {
+    if (!previewShell || !featureVideo.videoWidth || !featureVideo.videoHeight) {
+      return;
+    }
+
+    previewShell.style.setProperty("--preview-width", `${featureVideo.videoWidth}`);
+    previewShell.style.setProperty("--preview-height", `${featureVideo.videoHeight}`);
+  };
+
   const syncFeatureVideoPlayback = () => {
+    syncPreviewAspectRatio();
+
     if (reduceMotion.matches) {
       featureVideo.pause();
       featureVideo.removeAttribute("autoplay");
@@ -52,6 +89,7 @@ if (featureVideo) {
   };
 
   featureVideo.addEventListener("loadedmetadata", syncFeatureVideoPlayback, { once: true });
+  featureVideo.addEventListener("loadedmetadata", syncPreviewAspectRatio, { once: true });
   syncFeatureVideoPlayback();
 
   if (typeof reduceMotion.addEventListener === "function") {
