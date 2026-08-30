@@ -1232,6 +1232,7 @@ a {
 @media (max-width: 47.5rem) {
   :root {
     --header-height: 4rem;
+    --mobile-hero-first-screen-offset: 5.55rem;
   }
 
   .hero {
@@ -1291,6 +1292,12 @@ a {
     gap: 0.85rem;
   }
 
+  .hero-copy {
+    min-height: calc(100vh - var(--mobile-hero-first-screen-offset));
+    min-height: calc(100svh - var(--mobile-hero-first-screen-offset));
+    display: flex;
+  }
+
   .message-card {
     --message-top-padding: 1.5rem;
     --message-body-padding-top: 2rem;
@@ -1298,7 +1305,7 @@ a {
     --message-footer-height: 4.7rem;
     height: auto;
     max-height: none;
-    min-height: auto;
+    min-height: 100%;
     border-radius: 1.7rem;
   }
 
@@ -1316,6 +1323,7 @@ a {
   }
 
   .message-body {
+    justify-content: center;
     padding-top: var(--message-body-padding-top);
     padding-bottom: var(--message-body-padding-bottom);
   }
@@ -1330,6 +1338,7 @@ a {
   }
 
   .message-footer {
+    margin-top: auto;
     min-height: var(--message-footer-height);
     padding: 0 1.35rem;
   }
