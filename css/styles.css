@@ -1315,4 +1315,9 @@ a {
     font-size: 0.72rem;
     letter-spacing: -0.03em;
   }
+
+  .site-preview-video,
+  .feature-video {
+    object-position: center 20%;
+  }
 }
