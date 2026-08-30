@@ -3,7 +3,6 @@ const navLinks = document.querySelectorAll(".site-nav a");
 const featureVideo = document.querySelector("[data-feature-video]");
 const siteNav = document.querySelector(".site-nav");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-const previewShell = document.querySelector(".site-preview-shell");
 
 const setActiveLink = (id) => {
   navLinks.forEach((link) => {
@@ -60,18 +59,7 @@ if (mobileMenuToggle && siteNav) {
 if (featureVideo) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  const syncPreviewAspectRatio = () => {
-    if (!previewShell || !featureVideo.videoWidth || !featureVideo.videoHeight) {
-      return;
-    }
-
-    previewShell.style.setProperty("--preview-width", `${featureVideo.videoWidth}`);
-    previewShell.style.setProperty("--preview-height", `${featureVideo.videoHeight}`);
-  };
-
   const syncFeatureVideoPlayback = () => {
-    syncPreviewAspectRatio();
-
     if (reduceMotion.matches) {
       featureVideo.pause();
       featureVideo.removeAttribute("autoplay");
@@ -89,7 +77,6 @@ if (featureVideo) {
   };
 
   featureVideo.addEventListener("loadedmetadata", syncFeatureVideoPlayback, { once: true });
-  featureVideo.addEventListener("loadedmetadata", syncPreviewAspectRatio, { once: true });
   syncFeatureVideoPlayback();
 
   if (typeof reduceMotion.addEventListener === "function") {

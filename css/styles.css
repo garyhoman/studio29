@@ -266,11 +266,6 @@ a {
     max-width: min(100%, 18.9rem);
     max-height: 100%;
   }
-
-  .site-preview-shell {
-    width: 100%;
-    max-height: 100%;
-  }
 }
 
 .float-sync {
@@ -382,8 +377,7 @@ a {
 .phone-shell {
   position: relative;
   width: min(100%, 21.25rem);
-  aspect-ratio: 0.52 / 1;
-  padding: 0.5rem;
+  aspect-ratio: 393 / 852;
   border-radius: 3.4rem;
   background:
     linear-gradient(90deg, #8c8d90 0%, #5b5c5f 7%, #2f3033 40%, #4c4d50 72%, #87888b 100%);
@@ -448,14 +442,11 @@ a {
 }
 
 .phone-screen {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  inset: 0.35rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 0;
-  padding: 0.35rem;
   border-radius: 3rem;
   background:
     linear-gradient(180deg, #121315 0%, #0b0b0c 100%);
@@ -482,26 +473,13 @@ a {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.site-preview-shell {
-  --preview-width: 1080;
-  --preview-height: 2340;
-  width: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  aspect-ratio: var(--preview-width) / var(--preview-height);
-  position: relative;
-  overflow: hidden;
-  border-radius: 2.72rem;
-  flex: 0 1 auto;
-}
-
 .site-preview {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  border-radius: inherit;
+  min-height: 0;
+  border-radius: 2.72rem;
   overflow: hidden;
   background: #0b0b0c;
   color: #ffffff;
@@ -714,7 +692,7 @@ a {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 58%;
   background: transparent;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -1069,6 +1047,17 @@ a {
   }
 }
 
+@keyframes hero-float-phone-mobile {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1162,10 +1151,6 @@ a {
   .about-grid,
   .contact-panel {
     grid-template-columns: 1fr;
-  }
-
-  .hero-device.float-sync {
-    animation: none;
   }
 
   .project-lead {
@@ -1285,14 +1270,19 @@ a {
   .hero-device {
     height: auto;
     padding-top: 0;
+    width: 100%;
+    justify-content: center;
   }
 
   .phone-shell {
-    width: min(85vw, 20.75rem);
-    aspect-ratio: 0.52 / 1;
+    width: min(90vw, 22.5rem);
+    aspect-ratio: 393 / 852;
     max-height: none;
     border-radius: 2.3rem;
-    padding: 0.33rem;
+  }
+
+  .hero-device.float-sync {
+    animation: hero-float-phone-mobile 7s ease-in-out infinite;
   }
 
   .phone-shell::after {
@@ -1300,7 +1290,7 @@ a {
   }
 
   .phone-screen {
-    padding: 0.2rem;
+    inset: 0.2rem;
     border-radius: 1.95rem;
   }
 
@@ -1320,12 +1310,6 @@ a {
   }
 
   .site-preview {
-    border-radius: 1.76rem;
-  }
-
-  .site-preview-shell {
-    width: 100%;
-    max-height: calc(100% - 0.65rem);
     border-radius: 1.76rem;
   }
 
