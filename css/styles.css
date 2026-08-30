@@ -131,11 +131,18 @@ a {
 }
 
 .hero {
+  min-height: calc(100svh - var(--header-height));
+  height: calc(100svh - var(--header-height));
+  display: flex;
+  align-items: stretch;
   padding: clamp(1rem, 2.4vw, 1.75rem) 0 clamp(1.75rem, 3vw, 2.5rem);
+  overflow: hidden;
 }
 
 .hero-inner {
-  min-height: calc(100svh - var(--header-height) - 3.25rem);
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.82fr);
   align-items: center;
@@ -147,6 +154,12 @@ a {
   will-change: transform;
 }
 
+.hero-copy,
+.hero-device {
+  min-height: 0;
+  height: 100%;
+}
+
 .hero-device.float-sync {
   animation: hero-float-phone 7s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
@@ -154,7 +167,9 @@ a {
 }
 
 .message-card {
-  min-height: clamp(29.5rem, 58vh, 37rem);
+  height: 100%;
+  min-height: 0;
+  max-height: min(37rem, 100%);
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
@@ -249,6 +264,7 @@ a {
 }
 
 .hero-device {
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,8 +274,9 @@ a {
 
 .phone-shell {
   position: relative;
-  width: min(100%, 21.25rem);
+  width: min(100%, 19.25rem);
   aspect-ratio: 0.52 / 1;
+  max-height: 100%;
   padding: 0.5rem;
   border-radius: 3.4rem;
   background:
@@ -905,6 +922,28 @@ a {
   }
 }
 
+@keyframes hero-float-compact {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes hero-float-phone-compact {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -920,20 +959,50 @@ a {
 }
 
 @media (max-height: 45rem) and (min-width: 48rem) {
+  .hero {
+    padding-top: 0.85rem;
+    padding-bottom: 0.9rem;
+  }
+
   .hero-inner {
-    min-height: calc(100svh - var(--header-height) - 1rem);
+    gap: clamp(1rem, 2vw, 1.75rem);
   }
 
   .message-card {
-    min-height: 29rem;
+    max-height: 100%;
+  }
+
+  .message-top {
+    padding: 1.4rem clamp(1.35rem, 3vw, 2.5rem) 0;
+  }
+
+  .message-body {
+    padding: 1.8rem clamp(1.35rem, 3vw, 2.5rem) 1.75rem;
   }
 
   .message-body h1 {
-    font-size: clamp(2.4rem, 4.25vw, 4rem);
+    font-size: clamp(2.35rem, 4vw, 4.1rem);
+  }
+
+  .message-body p {
+    margin-top: 1rem;
+  }
+
+  .message-footer {
+    min-height: 5.15rem;
+    padding: 0 clamp(1.35rem, 3vw, 2.5rem);
   }
 
   .phone-shell {
-    width: min(100%, 18rem);
+    width: min(100%, 17rem);
+  }
+
+  .float-sync {
+    animation-name: hero-float-compact;
+  }
+
+  .hero-device.float-sync {
+    animation-name: hero-float-phone-compact;
   }
 }
 
@@ -983,17 +1052,23 @@ a {
   }
 
   .hero {
+    min-height: auto;
+    height: auto;
+    display: block;
+    overflow: visible;
     padding-top: 1rem;
   }
 
   .hero-inner {
-    min-height: auto;
+    height: auto;
     grid-template-columns: 1fr;
     align-items: start;
     gap: 1rem;
   }
 
   .message-card {
+    height: auto;
+    max-height: none;
     min-height: auto;
     border-radius: 1.7rem;
   }
@@ -1030,11 +1105,13 @@ a {
   }
 
   .hero-device {
+    height: auto;
     padding-top: 0.2rem;
   }
 
   .phone-shell {
-    width: min(72vw, 17.5rem);
+    width: min(72vw, 16.9rem);
+    max-height: none;
     border-radius: 2.3rem;
     padding: 0.33rem;
   }
