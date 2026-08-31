@@ -1529,6 +1529,15 @@ a {
     font-size: clamp(2.05rem, 9.9vw, 3.05rem);
   }
 
+  .outcome-phrase {
+    white-space: normal;
+  }
+
+  .rotating-outcome {
+    min-width: 0;
+    width: auto;
+  }
+
   .message-body p {
     margin-top: 1rem;
     font-size: 1rem;
