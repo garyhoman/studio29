@@ -60,6 +60,18 @@ a {
   top: 1rem;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
@@ -338,6 +350,34 @@ a {
   line-height: 0.96;
   letter-spacing: -0.065em;
   font-weight: 690;
+}
+
+.outcome-phrase {
+  white-space: nowrap;
+}
+
+.rotating-outcome {
+  display: inline-grid;
+  min-width: 5.9em;
+  vertical-align: baseline;
+}
+
+.rotating-outcome-text {
+  display: inline-block;
+  grid-area: 1 / 1;
+  font-style: italic;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.rotating-outcome-text.is-exiting {
+  opacity: 0;
+  transform: translate3d(0, -0.16em, 0);
+}
+
+.rotating-outcome-text.is-entering {
+  opacity: 0;
+  transform: translate3d(0, 0.16em, 0);
 }
 
 .message-body p {

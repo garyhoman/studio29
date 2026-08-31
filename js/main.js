@@ -1,6 +1,7 @@
 const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll(".site-nav a");
 const featureVideo = document.querySelector("[data-feature-video]");
+const rotatingOutcome = document.querySelector("[data-outcome-text]");
 const siteNav = document.querySelector(".site-nav");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 
@@ -102,5 +103,76 @@ if (featureVideo) {
     reduceMotion.addEventListener("change", syncFeatureVideoPlayback);
   } else if (typeof reduceMotion.addListener === "function") {
     reduceMotion.addListener(syncFeatureVideoPlayback);
+  }
+}
+
+if (rotatingOutcome) {
+  const outcomes = ["customers", "traffic", "sales", "enquiries"];
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const transitionMs = 320;
+  const holdMs = 3000;
+  let outcomeIndex = 0;
+  let outcomeTimeoutId = null;
+
+  const clearOutcomeTimer = () => {
+    if (outcomeTimeoutId !== null) {
+      window.clearTimeout(outcomeTimeoutId);
+      outcomeTimeoutId = null;
+    }
+  };
+
+  const setOutcomeWord = (word) => {
+    rotatingOutcome.textContent = word;
+    rotatingOutcome.classList.remove("is-entering", "is-exiting");
+  };
+
+  const queueNextOutcome = () => {
+    clearOutcomeTimer();
+
+    if (reduceMotion.matches || document.hidden) {
+      return;
+    }
+
+    outcomeTimeoutId = window.setTimeout(() => {
+      rotatingOutcome.classList.add("is-exiting");
+
+      window.setTimeout(() => {
+        outcomeIndex = (outcomeIndex + 1) % outcomes.length;
+        rotatingOutcome.textContent = outcomes[outcomeIndex];
+        rotatingOutcome.classList.remove("is-exiting");
+        rotatingOutcome.classList.add("is-entering");
+
+        window.setTimeout(() => {
+          rotatingOutcome.classList.remove("is-entering");
+          queueNextOutcome();
+        }, transitionMs);
+      }, transitionMs);
+    }, holdMs);
+  };
+
+  const syncOutcomeRotation = () => {
+    clearOutcomeTimer();
+
+    if (reduceMotion.matches) {
+      outcomeIndex = 0;
+      setOutcomeWord(outcomes[outcomeIndex]);
+      return;
+    }
+
+    if (document.hidden) {
+      return;
+    }
+
+    setOutcomeWord(outcomes[outcomeIndex]);
+    queueNextOutcome();
+  };
+
+  syncOutcomeRotation();
+  document.addEventListener("visibilitychange", syncOutcomeRotation);
+
+  if (typeof reduceMotion.addEventListener === "function") {
+    reduceMotion.addEventListener("change", syncOutcomeRotation);
+  } else if (typeof reduceMotion.addListener === "function") {
+    reduceMotion.addListener(syncOutcomeRotation);
   }
 }
