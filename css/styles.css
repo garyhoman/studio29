@@ -734,16 +734,16 @@ a {
   margin-top: 3.8rem;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr);
-  gap: 1.5rem;
+  gap: 1.7rem;
 }
 
 .project-card {
-  min-height: 19rem;
+  min-height: 17.6rem;
 }
 
 .project-lead {
   grid-row: span 2;
-  min-height: 39rem;
+  min-height: 36.2rem;
 }
 
 .project-link {
@@ -768,7 +768,7 @@ a {
 
 .project-visual {
   position: relative;
-  min-height: 14rem;
+  min-height: 12.9rem;
   overflow: hidden;
 }
 
@@ -1262,7 +1262,7 @@ a {
 
   .project-lead {
     grid-row: auto;
-    min-height: 32rem;
+    min-height: 29.6rem;
   }
 
   .contact-copy {
@@ -1498,6 +1498,24 @@ a {
 
   .services-grid {
     margin-top: 2.5rem;
+  }
+
+  .work-grid {
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    width: min(94%, 30rem);
+    margin-inline: auto;
+    min-height: 17.4rem;
+  }
+
+  .project-lead {
+    min-height: 28.8rem;
+  }
+
+  .project-visual {
+    min-height: 12.2rem;
   }
 
   .service-row {
