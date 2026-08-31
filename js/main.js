@@ -58,9 +58,21 @@ if (mobileMenuToggle && siteNav) {
 
 if (featureVideo) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let isVideoReady = false;
+
+  const revealFeatureVideo = () => {
+    if (reduceMotion.matches || isVideoReady) {
+      return;
+    }
+
+    isVideoReady = true;
+    featureVideo.classList.add("is-ready");
+  };
 
   const syncFeatureVideoPlayback = () => {
     if (reduceMotion.matches) {
+      isVideoReady = false;
+      featureVideo.classList.remove("is-ready");
       featureVideo.pause();
       featureVideo.removeAttribute("autoplay");
       featureVideo.currentTime = 0;
@@ -75,6 +87,13 @@ if (featureVideo) {
       playAttempt.catch(() => {});
     }
   };
+
+  if (featureVideo.readyState >= 2) {
+    revealFeatureVideo();
+  } else {
+    featureVideo.addEventListener("loadeddata", revealFeatureVideo, { once: true });
+    featureVideo.addEventListener("canplay", revealFeatureVideo, { once: true });
+  }
 
   featureVideo.addEventListener("loadedmetadata", syncFeatureVideoPlayback, { once: true });
   syncFeatureVideoPlayback();
