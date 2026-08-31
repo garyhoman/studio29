@@ -912,11 +912,11 @@ a {
 
 .service-row {
   display: grid;
-  grid-template-columns: 4.5rem minmax(13rem, 0.75fr) minmax(18rem, 1fr) auto;
+  grid-template-columns: 4.5rem minmax(13.75rem, 0.82fr) minmax(20rem, 1.18fr);
   align-items: start;
   gap: clamp(1rem, 2.6vw, 2.4rem);
   padding: clamp(1.85rem, 3.25vw, 2.75rem) 0;
-  transition: background-color 180ms ease;
+  transition: border-color 180ms ease;
 }
 
 .service-row + .service-row {
@@ -942,30 +942,77 @@ a {
 
 .service-copy {
   margin: 0;
-  max-width: 33rem;
+  max-width: 35rem;
   font-size: clamp(1rem, 1.2vw, 1.1rem);
   line-height: 1.62;
   letter-spacing: -0.015em;
   color: var(--muted);
 }
 
-.service-row-arrow {
-  align-self: center;
-  justify-self: end;
-  font-size: 0.96rem;
-  color: rgba(18, 18, 18, 0.28);
-  opacity: 0;
-  transform: translateX(-0.25rem);
-  transition: opacity 180ms ease, transform 180ms ease, color 180ms ease;
+.services-secondary {
+  margin-top: clamp(3.4rem, 6vw, 5.6rem);
+  padding-top: clamp(2rem, 4vw, 2.8rem);
+  border-top: 1px solid var(--line);
 }
 
-.service-row-featured .service-title {
-  color: #151515;
-  font-weight: 700;
+.services-secondary-header {
+  max-width: 42rem;
 }
 
-.service-row-featured .service-copy {
-  color: #5f5954;
+.services-secondary-header .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+.services-secondary-header h3 {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.services-secondary-copy {
+  margin: 1rem 0 0;
+  max-width: 40rem;
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.62;
+  letter-spacing: -0.015em;
+  color: var(--muted);
+}
+
+.additional-services-list {
+  margin-top: clamp(2rem, 4vw, 2.9rem);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.additional-service-item {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: baseline;
+  padding: 1.15rem 0 1.2rem;
+}
+
+.additional-service-item + .additional-service-item {
+  border-top: 1px solid var(--line);
+}
+
+.additional-service-item h4,
+.additional-service-item p {
+  margin: 0;
+}
+
+.additional-service-item h4 {
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.additional-service-item p {
+  max-width: 30rem;
+  font-size: 0.98rem;
+  line-height: 1.58;
+  color: var(--muted);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -975,16 +1022,6 @@ a {
 
   .service-row:hover .service-title {
     transform: translateX(0.22rem);
-  }
-
-  .service-row:hover .service-row-arrow {
-    opacity: 1;
-    transform: translateX(0);
-    color: rgba(18, 18, 18, 0.56);
-  }
-
-  .service-row-featured:hover {
-    background: rgba(18, 18, 18, 0.02);
   }
 }
 
@@ -1207,8 +1244,12 @@ a {
   }
 
   .service-row {
-    grid-template-columns: 4.2rem minmax(10.5rem, 0.8fr) minmax(0, 1fr) auto;
+    grid-template-columns: 4.2rem minmax(10.5rem, 0.82fr) minmax(0, 1.18fr);
     gap: 1.2rem;
+  }
+
+  .additional-service-item {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 }
 
@@ -1479,8 +1520,19 @@ a {
     line-height: 1.58;
   }
 
-  .service-row-arrow {
-    display: none;
+  .services-secondary {
+    margin-top: 2.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .services-secondary-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .additional-service-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    padding: 1rem 0 1.05rem;
   }
 
 }
