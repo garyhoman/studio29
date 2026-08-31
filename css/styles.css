@@ -1534,8 +1534,13 @@ a {
   }
 
   .rotating-outcome {
+    display: inline;
     min-width: 0;
     width: auto;
+  }
+
+  .rotating-outcome-text {
+    display: inline-block;
   }
 
   .message-body p {
