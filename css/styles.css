@@ -1534,9 +1534,10 @@ a {
   }
 
   .rotating-outcome {
-    display: inline;
+    display: block;
     min-width: 0;
     width: auto;
+    margin-top: 0.02em;
   }
 
   .rotating-outcome-text {
