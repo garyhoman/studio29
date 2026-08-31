@@ -1446,7 +1446,7 @@ a {
     height: auto;
     grid-template-columns: 1fr;
     align-items: start;
-    gap: 0.88rem;
+    gap: 1.72rem;
   }
 
   .hero-copy {
