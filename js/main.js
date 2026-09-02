@@ -113,11 +113,23 @@ if (rotatingOutcome) {
   const holdMs = 3000;
   let outcomeIndex = 0;
   let outcomeTimeoutId = null;
+  let exitTimeoutId = null;
+  let enterTimeoutId = null;
 
-  const clearOutcomeTimer = () => {
+  const clearOutcomeTimers = () => {
     if (outcomeTimeoutId !== null) {
       window.clearTimeout(outcomeTimeoutId);
       outcomeTimeoutId = null;
+    }
+
+    if (exitTimeoutId !== null) {
+      window.clearTimeout(exitTimeoutId);
+      exitTimeoutId = null;
+    }
+
+    if (enterTimeoutId !== null) {
+      window.clearTimeout(enterTimeoutId);
+      enterTimeoutId = null;
     }
   };
 
@@ -127,22 +139,25 @@ if (rotatingOutcome) {
   };
 
   const queueNextOutcome = () => {
-    clearOutcomeTimer();
+    clearOutcomeTimers();
 
     if (reduceMotion.matches || document.hidden) {
       return;
     }
 
     outcomeTimeoutId = window.setTimeout(() => {
+      outcomeTimeoutId = null;
       rotatingOutcome.classList.add("is-exiting");
 
-      window.setTimeout(() => {
+      exitTimeoutId = window.setTimeout(() => {
+        exitTimeoutId = null;
         outcomeIndex = (outcomeIndex + 1) % outcomes.length;
         rotatingOutcome.textContent = outcomes[outcomeIndex];
         rotatingOutcome.classList.remove("is-exiting");
         rotatingOutcome.classList.add("is-entering");
 
-        window.setTimeout(() => {
+        enterTimeoutId = window.setTimeout(() => {
+          enterTimeoutId = null;
           rotatingOutcome.classList.remove("is-entering");
           queueNextOutcome();
         }, transitionMs);
@@ -151,7 +166,7 @@ if (rotatingOutcome) {
   };
 
   const syncOutcomeRotation = () => {
-    clearOutcomeTimer();
+    clearOutcomeTimers();
 
     if (reduceMotion.matches) {
       outcomeIndex = 0;

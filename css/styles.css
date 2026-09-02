@@ -1192,6 +1192,8 @@ a {
   font-weight: 650;
   line-height: 1;
   text-decoration: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .contact-copy {
@@ -1390,12 +1392,22 @@ a {
   }
 
   .service-row {
-    grid-template-columns: 4.2rem minmax(10.5rem, 0.82fr) minmax(0, 1.18fr);
-    gap: 1.2rem;
+    grid-template-columns: 4.2rem minmax(0, 1fr);
+    gap: 0.7rem 1.2rem;
   }
 
   .additional-service-item {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+  }
+
+  .service-number {
+    grid-row: 1 / span 2;
+  }
+
+  .service-title,
+  .service-copy {
+    grid-column: 2;
   }
 }
 
@@ -1447,10 +1459,6 @@ a {
     background:
       radial-gradient(circle at 62% 72%, rgba(210, 175, 135, 0.12), transparent 38%),
       radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.58), transparent 44%);
-  }
-
-  .hero::after {
-    height: 4rem;
   }
 
   .header-inner {
@@ -1790,6 +1798,10 @@ a {
 
   .site-nav a {
     font-size: 0.92rem;
+  }
+
+  .contact-link {
+    font-size: clamp(1.85rem, 9vw, 2.5rem);
   }
 
   .project-meta {
