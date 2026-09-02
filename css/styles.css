@@ -191,13 +191,37 @@ a {
 
 .hero {
   position: relative;
+  isolation: isolate;
   padding: clamp(1rem, 2.4vw, 1.75rem) 0 clamp(1.75rem, 3vw, 2.5rem);
+  background: transparent;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
   background:
-    radial-gradient(circle at 72% 55%, rgba(210, 175, 135, 0.14), transparent 36%),
-    radial-gradient(circle at 32% 38%, rgba(255, 255, 255, 0.55), transparent 42%);
+    radial-gradient(circle at 72% 44%, rgba(210, 175, 135, 0.13), transparent 34%),
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.48), transparent 38%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 95%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 95%);
+}
+
+@media (min-width: 48rem) {
+  .hero::before {
+    background:
+      radial-gradient(circle at 72% 42%, rgba(210, 175, 135, 0.12), transparent 33%),
+      radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.45), transparent 37%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 92%);
+  }
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   min-height: calc(100svh - var(--header-height) - 3.25rem);
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.82fr);
@@ -227,7 +251,7 @@ a {
   .hero {
     min-height: calc(100svh - var(--header-height));
     padding: clamp(1.45rem, 3vw, 2.2rem) 0 clamp(1rem, 2vw, 1.75rem);
-    overflow: hidden;
+    overflow: visible;
   }
 
   .hero-inner {
@@ -1415,9 +1439,18 @@ a {
     overflow: visible;
     padding-top: 1.45rem;
     padding-bottom: 1.2rem;
+    background: transparent;
+  }
+
+  .hero::before {
+    inset: 0 0 -3.6rem;
     background:
-      radial-gradient(circle at 62% 78%, rgba(210, 175, 135, 0.12), transparent 34%),
-      radial-gradient(circle at 34% 20%, rgba(255, 255, 255, 0.58), transparent 42%);
+      radial-gradient(circle at 62% 72%, rgba(210, 175, 135, 0.12), transparent 38%),
+      radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.58), transparent 44%);
+  }
+
+  .hero::after {
+    height: 4rem;
   }
 
   .header-inner {
@@ -1729,6 +1762,7 @@ a {
   }
 
 }
+
 
 @media (hover: hover) and (pointer: fine) {
   .hero-arrow:hover {
