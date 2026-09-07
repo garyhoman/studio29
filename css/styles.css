@@ -303,18 +303,18 @@ a {
 
 @media (max-width: 47.5rem) {
   .message-card {
-    background:
+    /* Preserve the shared layer sizes; the background shorthand resets them. */
+    background-image:
       linear-gradient(
         120deg,
-        rgba(255, 255, 255, 0.04) 0%,
-        rgba(255, 255, 255, 0.014) 25%,
+        rgba(255, 255, 255, 0.045) 0%,
+        rgba(255, 255, 255, 0.015) 25%,
         transparent 43%,
-        rgba(255, 255, 255, 0.018) 67%,
+        rgba(255, 255, 255, 0.02) 67%,
         transparent 84%
       ),
-      linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px),
-      #353839;
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
 }
 
