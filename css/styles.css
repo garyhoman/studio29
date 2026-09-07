@@ -247,6 +247,77 @@ a {
   animation: hero-card-in 0.78s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* EXPERIMENT: Graphite grid + metallic hero card */
+.message-card {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.018) 25%,
+      transparent 43%,
+      rgba(255, 255, 255, 0.022) 67%,
+      transparent 84%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    #39444a;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-size: 100% 100%, 28px 28px, 28px 28px, auto;
+  box-shadow:
+    0 1.4rem 3rem rgba(28, 24, 20, 0.13),
+    0 0.45rem 1.2rem rgba(28, 24, 20, 0.07);
+  transition: background-position 500ms ease;
+}
+
+.message-card .message-body p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.message-card .message-footer {
+  color: rgba(255, 255, 255, 0.9);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.message-card .hero-arrow {
+  border-color: rgba(255, 255, 255, 0.26);
+  color: #ffffff;
+}
+
+.message-card .hero-arrow:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .message-card:hover {
+    background-position: 2% 0, 0 0, 0 0, 0 0;
+  }
+
+  .message-card .hero-arrow:hover {
+    border-color: rgba(255, 255, 255, 0.52);
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .message-card {
+    background:
+      linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.04) 0%,
+        rgba(255, 255, 255, 0.014) 25%,
+        transparent 43%,
+        rgba(255, 255, 255, 0.018) 67%,
+        transparent 84%
+      ),
+      linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+      #39444a;
+  }
+}
+
 @media (min-width: 48rem) {
   .hero {
     min-height: calc(100svh - var(--header-height));
