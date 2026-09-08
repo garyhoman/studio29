@@ -448,7 +448,7 @@ a {
 }
 
 .hero-accent {
-  color: #9fb2c1;
+  color: #7fb7ff;
 }
 
 .outcome-phrase {
@@ -464,7 +464,7 @@ a {
 .rotating-outcome-text {
   display: inline-block;
   grid-area: 1 / 1;
-  color: #d8c3a5;
+  color: #d6b46a;
   font-style: italic;
   transform: translate3d(0, 0, 0);
   transition: opacity 300ms ease, transform 300ms ease;
