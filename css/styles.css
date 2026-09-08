@@ -447,6 +447,10 @@ a {
   font-weight: 690;
 }
 
+.hero-accent {
+  color: #d8c3a5;
+}
+
 .outcome-phrase {
   white-space: nowrap;
 }
