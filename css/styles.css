@@ -127,8 +127,7 @@
   color: rgba(245, 242, 237, 0.62);
 }
 
-[data-theme="dark"] .services-secondary-copy,
-[data-theme="dark"] .additional-service-item p {
+[data-theme="dark"] .services-secondary-copy {
   color: var(--muted);
 }
 
@@ -1412,7 +1411,7 @@ a {
 }
 
 .services-grid {
-  margin-top: clamp(3.1rem, 5vw, 4.8rem);
+  margin-top: clamp(2.75rem, 4vw, 3.75rem);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -1422,7 +1421,7 @@ a {
   grid-template-columns: 4.5rem minmax(13.75rem, 0.82fr) minmax(20rem, 1.18fr);
   align-items: start;
   gap: clamp(1rem, 2.6vw, 2.4rem);
-  padding: clamp(1.85rem, 3.25vw, 2.75rem) 0;
+  padding: clamp(1.5rem, 2.6vw, 2rem) 0;
   transition: border-color 180ms ease;
 }
 
@@ -1485,25 +1484,20 @@ a {
 }
 
 .additional-services-list {
-  margin-top: clamp(2rem, 4vw, 2.9rem);
+  margin-top: clamp(1.75rem, 3vw, 2.35rem);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .additional-service-item {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(1rem, 3vw, 2rem);
-  align-items: baseline;
-  padding: 1.15rem 0 1.2rem;
+  padding: 1rem 0;
 }
 
 .additional-service-item + .additional-service-item {
   border-top: 1px solid var(--line);
 }
 
-.additional-service-item h4,
-.additional-service-item p {
+.additional-service-item h4 {
   margin: 0;
 }
 
@@ -1511,13 +1505,6 @@ a {
   font-size: clamp(1rem, 1.25vw, 1.18rem);
   font-weight: 600;
   letter-spacing: -0.025em;
-}
-
-.additional-service-item p {
-  max-width: 30rem;
-  font-size: 0.98rem;
-  line-height: 1.58;
-  color: var(--muted);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1813,11 +1800,6 @@ a {
   .service-row {
     grid-template-columns: 4.2rem minmax(0, 1fr);
     gap: 0.7rem 1.2rem;
-  }
-
-  .additional-service-item {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.35rem;
   }
 
   .service-number {
@@ -2269,12 +2251,6 @@ a {
 
   .services-secondary-header h3 {
     font-size: 1.8rem;
-  }
-
-  .additional-service-item {
-    grid-template-columns: 1fr;
-    gap: 0.3rem;
-    padding: 1rem 0 1.05rem;
   }
 
 }
