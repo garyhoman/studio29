@@ -533,9 +533,9 @@ a {
   z-index: 1;
   min-height: calc(100svh - var(--header-height) - 3.25rem);
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.82fr);
+  grid-template-columns: minmax(0, 1.72fr) minmax(17rem, 0.72fr);
   align-items: center;
-  gap: clamp(0.8rem, 2vw, 1.8rem);
+  gap: clamp(1rem, 1.6vw, 1.5rem);
 }
 
 .message-card {
