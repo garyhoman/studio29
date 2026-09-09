@@ -1432,6 +1432,10 @@ a {
   transition: border-color 180ms ease;
 }
 
+.service-content {
+  display: contents;
+}
+
 .service-row + .service-row {
   border-top: 1px solid var(--line);
 }
@@ -1813,9 +1817,17 @@ a {
     grid-row: 1 / span 2;
   }
 
+  .service-content {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-width: 0;
+    gap: .7rem;
+  }
+
   .service-title,
   .service-copy {
-    grid-column: 2;
+    grid-column: auto;
   }
 }
 
@@ -2246,9 +2258,17 @@ a {
     align-self: start;
   }
 
+  .service-content {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-width: 0;
+    gap: .7rem;
+  }
+
   .service-title,
   .service-copy {
-    grid-column: 2;
+    grid-column: auto;
   }
 
   .service-title {
