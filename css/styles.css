@@ -206,8 +206,29 @@ a {
 }
 
 @media (min-width: 48rem) {
+  :root {
+    --header-height: 5.75rem;
+  }
+
+  .site-header {
+    top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .header-inner {
+    min-height: 4.75rem;
     gap: clamp(1.25rem, 2.5vw, 2.25rem);
+    padding: 0 clamp(0.9rem, 1.4vw, 1.2rem);
+    border: 1px solid rgba(20, 20, 20, 0.06);
+    border-radius: 1.6rem;
+    background: rgba(250, 248, 244, 0.94);
+    box-shadow: 0 0.75rem 1.875rem rgba(30, 25, 20, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .site-nav {
