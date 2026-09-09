@@ -1,5 +1,5 @@
 :root {
-  --bg: #f3efe8;
+  --bg: #f3f0eb;
   --surface: #faf8f4;
   --surface-soft: #eee9e1;
   --ink: #121212;
@@ -30,10 +30,7 @@ body {
   min-width: 20rem;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(222, 210, 195, 0.28), transparent 29%),
-    radial-gradient(circle at 78% 10%, rgba(255, 255, 255, 0.46), transparent 25%),
-    linear-gradient(180deg, #f7f3ed 0%, var(--bg) 48%, #f1ece4 100%);
+  background: var(--bg);
 }
 
 img {
@@ -204,8 +201,8 @@ a {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(circle at 72% 44%, rgba(210, 175, 135, 0.13), transparent 34%),
-    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.48), transparent 38%);
+    radial-gradient(circle at 72% 44%, rgba(210, 175, 135, 0.055), transparent 36%),
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.18), transparent 40%);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 95%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 95%);
 }
@@ -213,8 +210,8 @@ a {
 @media (min-width: 48rem) {
   .hero::before {
     background:
-      radial-gradient(circle at 72% 42%, rgba(210, 175, 135, 0.12), transparent 33%),
-      radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.45), transparent 37%);
+      radial-gradient(circle at 72% 42%, rgba(210, 175, 135, 0.05), transparent 35%),
+      radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.16), transparent 39%);
     -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 92%);
     mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 92%);
   }
@@ -239,17 +236,17 @@ a {
   display: flex;
   flex-direction: column;
   color: var(--ink);
-  border: 1px solid rgba(91, 82, 71, 0.13);
+  border: 1px solid rgba(25, 25, 25, 0.045);
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.16) 29%, transparent 52%, rgba(255, 255, 255, 0.24) 82%, rgba(255, 255, 255, 0.42) 100%),
-    linear-gradient(rgba(111, 102, 91, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 102, 91, 0.045) 1px, transparent 1px),
-    linear-gradient(145deg, #fbf9f5, #f7f3ed);
+    linear-gradient(120deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 29%, transparent 52%, rgba(255, 255, 255, 0.18) 82%, rgba(255, 255, 255, 0.3) 100%),
+    linear-gradient(rgba(40, 40, 40, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 40, 40, 0.025) 1px, transparent 1px),
+    #faf8f4;
   background-size: 100% 100%, 28px 28px, 28px 28px, 100% 100%;
   box-shadow:
-    0 1.25rem 2.8rem rgba(65, 53, 40, 0.07),
-    0 0.35rem 0.9rem rgba(65, 53, 40, 0.035);
+    0 1.125rem 2.8125rem rgba(40, 32, 24, 0.06),
+    0 0.35rem 0.9rem rgba(40, 32, 24, 0.025);
   overflow: hidden;
   animation: hero-card-in 0.78s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
@@ -348,24 +345,23 @@ a {
 
 .message-label {
   margin: 0;
-  font-size: clamp(0.68rem, 0.95vw, 0.82rem);
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  line-height: 1.35;
+  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
   text-transform: uppercase;
-  color: rgba(18, 18, 18, 0.62);
+  color: rgba(35, 35, 35, 0.62);
 }
 
 .status-dot {
-  width: 1rem;
-  height: 1rem;
+  width: 0.52rem;
+  height: 0.52rem;
   border-radius: 50%;
   flex: 0 0 auto;
   background: #26c35d;
   box-shadow:
-    0 0 0 0.55rem rgba(38, 195, 93, 0.14),
-    0 0 1.35rem rgba(38, 195, 93, 0.2);
-  animation: status-dot-pulse 3.8s ease-in-out infinite;
+    0 0 0 0.2rem rgba(38, 195, 93, 0.12),
+    0 0 0.55rem rgba(38, 195, 93, 0.14);
 }
 
 .message-body {
@@ -383,11 +379,12 @@ a {
   font-size: clamp(2.35rem, 4.2vw, 4.25rem);
   line-height: 0.96;
   letter-spacing: -0.065em;
-  font-weight: 690;
+  color: #303030;
+  font-weight: 600;
 }
 
 .hero-accent {
-  color: #7fb7ff;
+  color: #d8c3a5;
 }
 
 .outcome-phrase {
@@ -424,36 +421,43 @@ a {
   font-size: clamp(1.05rem, 1.75vw, 1.65rem);
   line-height: 1.45;
   letter-spacing: -0.02em;
-  color: var(--muted);
+  color: rgba(48, 48, 48, 0.56);
 }
 
 .message-footer {
   flex: 0 0 var(--message-footer-height);
   min-height: var(--message-footer-height);
   padding: 0 clamp(1.45rem, 4vw, 3rem);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(35, 35, 35, 0.1);
 }
 
-.message-footer strong {
-  font-size: clamp(1rem, 1.4vw, 1.35rem);
-  font-weight: 560;
-  letter-spacing: -0.03em;
+.availability-status,
+.hero-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  color: rgba(48, 48, 48, 0.72);
+  font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+  font-weight: 520;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.hero-arrow {
-  width: 3.15rem;
-  height: 3.15rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  font-size: 1.55rem;
+.hero-work-link {
+  gap: 0.45rem;
+  color: rgba(48, 48, 48, 0.86);
   text-decoration: none;
-  transition: transform 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
-.hero-arrow span {
-  transition: transform 200ms ease;
+.hero-work-arrow {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 0.8;
+  transition: transform 180ms ease;
 }
 
 .hero-device {
@@ -1307,17 +1311,6 @@ a {
   }
 }
 
-@keyframes status-dot-pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.88;
-  }
-}
-
 @keyframes hero-float-compact {
   0%,
   100% {
@@ -1512,32 +1505,32 @@ a {
   .hero::before {
     inset: 0 0 -3.6rem;
     background:
-      radial-gradient(circle at 62% 72%, rgba(210, 175, 135, 0.12), transparent 38%),
-      radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.58), transparent 44%);
+      radial-gradient(circle at 62% 72%, rgba(210, 175, 135, 0.05), transparent 40%),
+      radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.18), transparent 46%);
   }
 
   .header-inner {
     min-height: 3.95rem;
     gap: 0.8rem;
     padding: 0.72rem 1.1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(35, 35, 35, 0.06);
     border-radius: 1.6rem;
-    background: #353839;
+    background: rgba(250, 248, 244, 0.96);
     box-shadow:
-      0 0.75rem 1.9rem rgba(28, 24, 20, 0.1),
-      0 0.2rem 0.65rem rgba(28, 24, 20, 0.06);
+      0 0.75rem 1.9rem rgba(40, 32, 24, 0.06),
+      0 0.2rem 0.65rem rgba(40, 32, 24, 0.025);
   }
 
   .mobile-menu-toggle {
     display: grid;
     place-items: center;
     margin-left: auto;
-    color: rgba(255, 255, 255, 0.96);
+    color: rgba(48, 48, 48, 0.92);
   }
 
   .brandmark {
     font-size: 1.02rem;
-    color: rgba(255, 255, 255, 0.96);
+    color: rgba(48, 48, 48, 0.92);
   }
 
   .brandmark-desktop {
@@ -1558,12 +1551,12 @@ a {
     align-items: stretch;
     gap: 0;
     padding: 0.55rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(35, 35, 35, 0.06);
     border-radius: 1.45rem;
-    background: #353839;
+    background: #faf8f4;
     box-shadow:
-      0 0.9rem 2rem rgba(28, 24, 20, 0.1),
-      0 0.25rem 0.8rem rgba(28, 24, 20, 0.06);
+      0 0.9rem 2rem rgba(40, 32, 24, 0.06),
+      0 0.25rem 0.8rem rgba(40, 32, 24, 0.025);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     white-space: normal;
@@ -1578,17 +1571,17 @@ a {
     display: block;
     padding: 0.9rem 1.15rem;
     font-size: 0.98rem;
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(48, 48, 48, 0.86);
   }
 
   .site-nav a[aria-current="page"] {
-    color: #ffffff;
+    color: #303030;
   }
 
   .site-nav a:hover,
   .site-nav a:focus-visible {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(48, 48, 48, 0.045);
   }
 
   .hero-inner {
@@ -1620,13 +1613,32 @@ a {
   }
 
   .message-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
   }
 
   .status-dot {
-    width: 0.82rem;
-    height: 0.82rem;
+    width: 0.48rem;
+    height: 0.48rem;
+  }
+
+  .message-footer {
+    gap: 0.55rem;
+  }
+
+  .availability-status,
+  .hero-work-link {
+    gap: 0.42rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-work-link {
+    gap: 0.34rem;
+  }
+
+  .hero-work-arrow {
+    font-size: 1.05rem;
   }
 
   .message-body {
@@ -1880,14 +1892,11 @@ a {
 
 
 @media (hover: hover) and (pointer: fine) {
-  .hero-arrow:hover {
-    background: rgba(18, 18, 18, 0.96);
-    color: var(--surface);
-    border-color: rgba(18, 18, 18, 0.88);
-    transform: translate3d(0, 0, 0);
+  .hero-work-link:hover {
+    color: #121212;
   }
 
-.hero-arrow:hover span {
+  .hero-work-link:hover .hero-work-arrow {
     transform: translate3d(0, 2px, 0);
   }
 }
