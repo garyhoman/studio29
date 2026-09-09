@@ -1290,12 +1290,12 @@ a {
 @keyframes hero-phone-in-perspective {
   from {
     opacity: 0;
-    transform: translate3d(1.375rem, 20px, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
+    transform: translate3d(0.25rem, 20px, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
   }
 
   to {
     opacity: 1;
-    transform: translate3d(1.375rem, 0, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
+    transform: translate3d(0.25rem, 0, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
   }
 }
 
@@ -1679,12 +1679,13 @@ a {
 
   .hero-device {
     height: auto;
-    padding-top: 0;
+    padding: 0 0.5rem 0 0;
     width: 100%;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(4.4rem, 0.31fr) minmax(0, 1fr);
     align-items: flex-start;
-    justify-content: center;
-    gap: 0.6rem;
+    column-gap: clamp(0.85rem, 3vw, 1.2rem);
+    justify-content: normal;
     perspective: 1400px;
     perspective-origin: center center;
     transform: translate3d(0, -0.9rem, 0);
@@ -1695,13 +1696,15 @@ a {
     left: auto;
     top: auto;
     display: grid;
-    gap: 0.28rem;
-    margin: 0 0 0 clamp(0.5rem, 2vw, 0.75rem);
+    grid-column: 1;
+    align-self: start;
+    gap: 0.2rem;
+    margin: 0;
     color: rgba(18, 18, 18, 0.62);
     font-size: clamp(0.5rem, 1.9vw, 0.58rem);
     font-weight: 560;
     letter-spacing: 0.13em;
-    line-height: 1.45;
+    line-height: 1.52;
     text-align: left;
     text-transform: uppercase;
     pointer-events: none;
@@ -1711,18 +1714,20 @@ a {
     content: "";
     width: 2.7rem;
     height: 1px;
-    margin-top: 0.6rem;
+    margin-top: 0.52rem;
     background: currentColor;
     opacity: 0.65;
   }
 
   .phone-shell {
-    align-self: center;
-    width: min(75vw, 18.675rem);
+    grid-column: 2;
+    align-self: start;
+    justify-self: end;
+    width: min(67vw, 16.5rem);
     aspect-ratio: 393 / 852;
     max-height: none;
     border-radius: 2.3rem;
-    transform: translate3d(1.375rem, 0, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
+    transform: translate3d(0.25rem, 0, 0) rotateY(-14deg) rotateX(6deg) rotateZ(2deg) scale(0.97);
     transform-origin: center center;
     transform-style: preserve-3d;
     backface-visibility: hidden;
