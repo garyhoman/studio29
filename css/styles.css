@@ -23,6 +23,8 @@
   --hero-highlight: #a9783f;
   --header-height: 4.75rem;
   --max-width: 76rem;
+  --section-transition-bottom: clamp(3.5rem, 5vw, 5rem);
+  --section-transition-top: clamp(4rem, 7vw, 6.5rem);
 }
 
 [data-theme="dark"] {
@@ -1184,11 +1186,16 @@ a {
 }
 
 .work-section {
-  padding-bottom: clamp(3.5rem, 5vw, 5rem);
+  padding-bottom: var(--section-transition-bottom);
 }
 
 #services {
-  padding-top: clamp(4rem, 7vw, 6.5rem);
+  padding-top: var(--section-transition-top);
+  padding-bottom: var(--section-transition-bottom);
+}
+
+.about-section {
+  padding-top: var(--section-transition-top);
 }
 
 .eyebrow {
