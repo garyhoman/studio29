@@ -20,6 +20,7 @@
   --hero-card-sheen: linear-gradient(120deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 29%, transparent 52%, rgba(255, 255, 255, 0.18) 82%, rgba(255, 255, 255, 0.3) 100%);
   --hero-grid-line: rgba(40, 40, 40, 0.025);
   --hero-eyebrow: rgba(35, 35, 35, 0.62);
+  --hero-highlight: #a9783f;
   --header-height: 4.75rem;
   --max-width: 76rem;
 }
@@ -42,6 +43,7 @@
   --hero-card-sheen: linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.018) 29%, transparent 52%, rgba(255, 255, 255, 0.035) 82%, rgba(255, 255, 255, 0.06) 100%);
   --hero-grid-line: rgba(255, 255, 255, 0.04);
   --hero-eyebrow: rgba(245, 242, 237, 0.66);
+  --hero-highlight: #d8c3a5;
 }
 
 [data-theme="dark"] .brandmark,
@@ -734,7 +736,7 @@ a {
 }
 
 .hero-accent {
-  color: #d8c3a5;
+  color: var(--hero-highlight);
 }
 
 .final-outcome-phrase {
