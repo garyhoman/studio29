@@ -2044,6 +2044,7 @@ a {
     --message-top-padding: 1.5rem;
     --message-body-padding-top: 2rem;
     --message-body-padding-bottom: 1.6rem;
+    --message-body-offset: 0.625rem;
     --message-footer-height: 4.7rem;
     height: auto;
     max-height: none;
