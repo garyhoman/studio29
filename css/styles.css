@@ -436,7 +436,7 @@ a {
   }
 
   .hero-device {
-    justify-content: center;
+    justify-content: flex-end;
     align-items: stretch;
   }
 
