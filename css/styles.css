@@ -2233,13 +2233,22 @@ a {
   }
 
   .service-row {
-    grid-template-columns: 1fr;
-    gap: 0.58rem;
-    padding: 1.45rem 0 1.55rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.7rem;
+    padding: 1.5rem 0;
   }
 
   .service-number {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     padding-top: 0;
+    align-self: start;
+  }
+
+  .service-title,
+  .service-copy {
+    grid-column: 2;
   }
 
   .service-title {
