@@ -109,68 +109,63 @@ if (featureVideo) {
 if (rotatingOutcome) {
   const outcomes = ["customers", "traffic", "sales", "enquiries"];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const transitionMs = 320;
-  const holdMs = 3000;
+  const typingMs = 82;
+  const holdMs = 1400;
+  const deletingMs = 45;
+  const nextWordMs = 260;
   let outcomeIndex = 0;
+  let characterIndex = 0;
   let outcomeTimeoutId = null;
-  let exitTimeoutId = null;
-  let enterTimeoutId = null;
 
-  const clearOutcomeTimers = () => {
+  const clearOutcomeTimer = () => {
     if (outcomeTimeoutId !== null) {
       window.clearTimeout(outcomeTimeoutId);
       outcomeTimeoutId = null;
     }
-
-    if (exitTimeoutId !== null) {
-      window.clearTimeout(exitTimeoutId);
-      exitTimeoutId = null;
-    }
-
-    if (enterTimeoutId !== null) {
-      window.clearTimeout(enterTimeoutId);
-      enterTimeoutId = null;
-    }
   };
 
-  const setOutcomeWord = (word) => {
-    rotatingOutcome.textContent = word;
-    rotatingOutcome.classList.remove("is-entering", "is-exiting");
+  const scheduleOutcome = (callback, delay) => {
+    outcomeTimeoutId = window.setTimeout(() => {
+      outcomeTimeoutId = null;
+      callback();
+    }, delay);
   };
 
-  const queueNextOutcome = () => {
-    clearOutcomeTimers();
+  const typeOutcome = () => {
+    const word = outcomes[outcomeIndex];
 
-    if (reduceMotion.matches || document.hidden) {
+    rotatingOutcome.textContent = word.slice(0, characterIndex);
+
+    if (characterIndex < word.length) {
+      characterIndex += 1;
+      scheduleOutcome(typeOutcome, typingMs);
       return;
     }
 
-    outcomeTimeoutId = window.setTimeout(() => {
-      outcomeTimeoutId = null;
-      rotatingOutcome.classList.add("is-exiting");
+    scheduleOutcome(deleteOutcome, holdMs);
+  };
 
-      exitTimeoutId = window.setTimeout(() => {
-        exitTimeoutId = null;
-        outcomeIndex = (outcomeIndex + 1) % outcomes.length;
-        rotatingOutcome.textContent = outcomes[outcomeIndex];
-        rotatingOutcome.classList.remove("is-exiting");
-        rotatingOutcome.classList.add("is-entering");
+  const deleteOutcome = () => {
+    const word = outcomes[outcomeIndex];
 
-        enterTimeoutId = window.setTimeout(() => {
-          enterTimeoutId = null;
-          rotatingOutcome.classList.remove("is-entering");
-          queueNextOutcome();
-        }, transitionMs);
-      }, transitionMs);
-    }, holdMs);
+    rotatingOutcome.textContent = word.slice(0, characterIndex);
+
+    if (characterIndex > 0) {
+      characterIndex -= 1;
+      scheduleOutcome(deleteOutcome, deletingMs);
+      return;
+    }
+
+    outcomeIndex = (outcomeIndex + 1) % outcomes.length;
+    scheduleOutcome(typeOutcome, nextWordMs);
   };
 
   const syncOutcomeRotation = () => {
-    clearOutcomeTimers();
+    clearOutcomeTimer();
 
     if (reduceMotion.matches) {
       outcomeIndex = 0;
-      setOutcomeWord(outcomes[outcomeIndex]);
+      rotatingOutcome.textContent = outcomes[outcomeIndex];
       return;
     }
 
@@ -178,8 +173,10 @@ if (rotatingOutcome) {
       return;
     }
 
-    setOutcomeWord(outcomes[outcomeIndex]);
-    queueNextOutcome();
+    outcomeIndex = 0;
+    characterIndex = 0;
+    rotatingOutcome.textContent = "";
+    typeOutcome();
   };
 
   syncOutcomeRotation();
