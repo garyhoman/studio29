@@ -774,8 +774,6 @@ a {
 .hero-device {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
