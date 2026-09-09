@@ -2342,6 +2342,14 @@ a {
   }
 }
 
+/* Keep the compact editorial caption and device visually paired in narrow desktop windows. */
+@media (min-width: 48rem) and (max-width: 52rem) {
+  .hero-device {
+    width: calc(100% - 3rem);
+    margin-inline: auto;
+  }
+}
+
 @media (max-width: 28rem) {
   .header-inner {
     justify-content: space-between;
