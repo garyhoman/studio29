@@ -605,6 +605,7 @@ a {
 
 @media (min-width: 48rem) {
   .hero {
+    --hero-row-fold-space: 4.2rem;
     min-height: calc(100svh - var(--header-height));
     padding: clamp(1.45rem, 3vw, 2.2rem) 0 clamp(1rem, 2vw, 1.75rem);
     overflow: visible;
@@ -612,7 +613,7 @@ a {
 
   .hero-inner {
     min-height: 0;
-    height: min(calc(100svh - var(--header-height) - 2.1rem), 41.5rem);
+    height: min(calc(100svh - var(--header-height) - var(--hero-row-fold-space)), 41.5rem);
     align-items: stretch;
     width: min(calc(100% - 2rem), var(--max-width));
     margin: 0 auto;
@@ -1725,12 +1726,13 @@ a {
 
 @media (max-height: 45rem) and (min-width: 48rem) {
   .hero {
+    --hero-row-fold-space: 3.15rem;
     padding-top: 1.15rem;
     padding-bottom: 0.9rem;
   }
 
   .hero-inner {
-    height: min(calc(100svh - var(--header-height) - 1.75rem), 35.75rem);
+    height: min(calc(100svh - var(--header-height) - var(--hero-row-fold-space)), 35.75rem);
     gap: clamp(0.75rem, 1.6vw, 1.3rem);
   }
 
