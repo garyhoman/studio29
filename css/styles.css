@@ -11,7 +11,7 @@
   --radius-xl: 2.25rem;
   --radius-lg: 1.75rem;
   --radius-md: 1.25rem;
-  --header-height: 4.25rem;
+  --header-height: 4.75rem;
   --max-width: 76rem;
 }
 
@@ -82,8 +82,8 @@ a {
   z-index: 20;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(251, 251, 250, 0.84);
-  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+  background: rgba(243, 240, 235, 0.84);
+  border-bottom: 1px solid rgba(18, 18, 18, 0.06);
 }
 
 .header-inner,
@@ -103,13 +103,26 @@ a {
 }
 
 .brandmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
   flex: 0 0 auto;
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-size: 1.12rem;
+  font-weight: 720;
+  letter-spacing: -0.055em;
   text-decoration: none;
   position: relative;
   z-index: 2;
+}
+
+.brandmark-descriptor {
+  display: none;
+  color: rgba(48, 48, 48, 0.5);
+  font-size: 0.62rem;
+  font-weight: 520;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .brandmark-mobile {
@@ -186,6 +199,96 @@ a {
   outline: 2px solid currentColor;
   outline-offset: 4px;
   border-radius: 2px;
+}
+
+.header-cta {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .header-inner {
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  }
+
+  .site-nav {
+    flex: 0 1 auto;
+    margin-left: auto;
+    gap: clamp(1.25rem, 2.1vw, 2.45rem);
+  }
+
+  .site-nav a {
+    position: relative;
+    color: rgba(48, 48, 48, 0.78);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    transition: color 180ms ease;
+  }
+
+  .site-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.38rem;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible,
+  .site-nav a[aria-current="page"] {
+    color: #303030;
+    opacity: 1;
+  }
+
+  .site-nav a:hover::after,
+  .site-nav a:focus-visible::after,
+  .site-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .header-cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.42rem;
+    padding: 0.62rem 0.92rem;
+    border: 1px solid rgba(48, 48, 48, 0.22);
+    border-radius: 999px;
+    color: #303030;
+    font-size: 0.78rem;
+    font-weight: 520;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+
+  .header-cta:hover {
+    border-color: #303030;
+    background: #303030;
+    color: var(--surface);
+  }
+}
+
+@media (min-width: 75rem) {
+  .brandmark-descriptor {
+    display: inline;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 58rem) {
+  .site-nav {
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .header-cta {
+    display: none;
+  }
 }
 
 .hero {
