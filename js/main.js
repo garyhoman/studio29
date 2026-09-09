@@ -4,8 +4,7 @@ const featureVideo = document.querySelector("[data-feature-video]");
 const rotatingOutcome = document.querySelector("[data-outcome-text]");
 const siteNav = document.querySelector(".site-nav");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-const themeToggles = document.querySelectorAll("[data-theme-toggle]");
-const themeToggleLabels = document.querySelectorAll("[data-theme-toggle-label]");
+const themeToggle = document.querySelector("[data-theme-toggle]");
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const themePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -32,21 +31,12 @@ const applyTheme = (theme, persist = false) => {
   document.documentElement.dataset.theme = nextTheme;
   updateThemeColor(nextTheme);
 
-  const actionLabel = nextTheme === "dark" ? "Light mode" : "Dark mode";
-  const toggleLabel = `Switch to ${actionLabel.toLowerCase()}`;
-
-  themeToggles.forEach((toggle) => {
-    toggle.setAttribute("aria-label", toggleLabel);
-    toggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
-
-    if (toggle.classList.contains("theme-toggle")) {
-      toggle.setAttribute("title", toggleLabel);
-    }
-  });
-
-  themeToggleLabels.forEach((label) => {
-    label.textContent = actionLabel;
-  });
+  if (themeToggle) {
+    const toggleLabel = nextTheme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    themeToggle.setAttribute("aria-label", toggleLabel);
+    themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
+    themeToggle.setAttribute("title", toggleLabel);
+  }
 
   if (persist) {
     try {
@@ -57,11 +47,11 @@ const applyTheme = (theme, persist = false) => {
 
 applyTheme(document.documentElement.dataset.theme || getSystemTheme());
 
-themeToggles.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
     applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
   });
-});
+}
 
 const syncSystemTheme = () => {
   try {
