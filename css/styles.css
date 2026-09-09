@@ -1,7 +1,7 @@
 :root {
-  --bg: #fbfbfa;
-  --surface: #ffffff;
-  --surface-soft: #f5f2ee;
+  --bg: #f3efe8;
+  --surface: #faf8f4;
+  --surface-soft: #eee9e1;
   --ink: #121212;
   --muted: #68625c;
   --line: rgba(18, 18, 18, 0.1);
@@ -31,8 +31,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(226, 217, 210, 0.35), transparent 26%),
-    linear-gradient(180deg, #fffaf8 0%, var(--bg) 28%, #f9f7f4 100%);
+    radial-gradient(circle at top left, rgba(222, 210, 195, 0.28), transparent 29%),
+    radial-gradient(circle at 78% 10%, rgba(255, 255, 255, 0.46), transparent 25%),
+    linear-gradient(180deg, #f7f3ed 0%, var(--bg) 48%, #f1ece4 100%);
 }
 
 img {
@@ -237,85 +238,20 @@ a {
   min-height: clamp(29.5rem, 58vh, 37rem);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(20, 20, 20, 0.08);
+  color: var(--ink);
+  border: 1px solid rgba(91, 82, 71, 0.13);
   border-radius: var(--radius-xl);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.985), rgba(250, 248, 245, 0.95));
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.16) 29%, transparent 52%, rgba(255, 255, 255, 0.24) 82%, rgba(255, 255, 255, 0.42) 100%),
+    linear-gradient(rgba(111, 102, 91, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 102, 91, 0.045) 1px, transparent 1px),
+    linear-gradient(145deg, #fbf9f5, #f7f3ed);
+  background-size: 100% 100%, 28px 28px, 28px 28px, 100% 100%;
   box-shadow:
-    0 1.4rem 3rem rgba(28, 24, 20, 0.09),
-    0 0.45rem 1.2rem rgba(28, 24, 20, 0.05);
+    0 1.25rem 2.8rem rgba(65, 53, 40, 0.07),
+    0 0.35rem 0.9rem rgba(65, 53, 40, 0.035);
   overflow: hidden;
   animation: hero-card-in 0.78s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-/* EXPERIMENT: Onyx grid + metallic hero card */
-.message-card {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.07);
-  background:
-    linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(255, 255, 255, 0.018) 25%,
-      transparent 43%,
-      rgba(255, 255, 255, 0.022) 67%,
-      transparent 84%
-    ),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    #353839;
-  background-position: 0 0, 0 0, 0 0, 0 0;
-  background-size: 100% 100%, 28px 28px, 28px 28px, auto;
-  box-shadow:
-    0 1.4rem 3rem rgba(28, 24, 20, 0.13),
-    0 0.45rem 1.2rem rgba(28, 24, 20, 0.07);
-  transition: background-position 500ms ease;
-}
-
-.message-card .message-body p {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.message-card .message-footer {
-  color: rgba(255, 255, 255, 0.9);
-  border-top-color: rgba(255, 255, 255, 0.12);
-}
-
-.message-card .hero-arrow {
-  border-color: rgba(255, 255, 255, 0.26);
-  color: #ffffff;
-}
-
-.message-card .hero-arrow:focus-visible {
-  outline-color: #ffffff;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .message-card:hover {
-    background-position: 2% 0, 0 0, 0 0, 0 0;
-  }
-
-  .message-card .hero-arrow:hover {
-    border-color: rgba(255, 255, 255, 0.52);
-    background: rgba(255, 255, 255, 0.09);
-    color: #ffffff;
-  }
-}
-
-@media (max-width: 47.5rem) {
-  .message-card {
-    /* Preserve the shared layer sizes; the background shorthand resets them. */
-    background-image:
-      linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.045) 0%,
-        rgba(255, 255, 255, 0.015) 25%,
-        transparent 43%,
-        rgba(255, 255, 255, 0.02) 67%,
-        transparent 84%
-      ),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  }
 }
 
 @media (min-width: 48rem) {
@@ -412,9 +348,12 @@ a {
 
 .message-label {
   margin: 0;
-  font-size: clamp(2rem, 3.8vw, 3.5rem);
-  font-weight: 720;
-  letter-spacing: -0.055em;
+  font-size: clamp(0.68rem, 0.95vw, 0.82rem);
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: rgba(18, 18, 18, 0.62);
 }
 
 .status-dot {
@@ -1681,7 +1620,8 @@ a {
   }
 
   .message-label {
-    font-size: 1.9rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
   }
 
   .status-dot {
@@ -1947,8 +1887,8 @@ a {
     transform: translate3d(0, 0, 0);
   }
 
-  .hero-arrow:hover span {
-    transform: translate3d(2px, -2px, 0);
+.hero-arrow:hover span {
+    transform: translate3d(0, 2px, 0);
   }
 }
 
