@@ -14,6 +14,7 @@ const getThemeColor = (theme) => (theme === "dark" ? "#353839" : "#F3F0EB");
 const updateThemeColor = (theme) => {
   const color = getThemeColor(theme);
 
+  document.documentElement.style.colorScheme = theme;
   document.documentElement.style.backgroundColor = color;
   if (document.body) {
     document.body.style.backgroundColor = color;
@@ -23,6 +24,10 @@ const updateThemeColor = (theme) => {
     themeColorMeta.setAttribute("content", color);
     // Re-attaching prompts Safari to re-evaluate the browser chrome color.
     document.head.append(themeColorMeta);
+
+    requestAnimationFrame(() => {
+      themeColorMeta.setAttribute("content", color);
+    });
   }
 };
 

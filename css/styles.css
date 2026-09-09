@@ -170,7 +170,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--bg);
+  background-color: var(--bg);
 }
 
 body {
@@ -178,10 +178,9 @@ body {
   min-width: 20rem;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background-color: var(--bg);
 }
 
-body,
 .site-header,
 .header-inner,
 .theme-toggle,
