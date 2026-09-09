@@ -16,6 +16,8 @@
   --nav-border: rgba(20, 20, 20, 0.06);
   --nav-shadow: 0 0.75rem 1.875rem rgba(30, 25, 20, 0.06);
   --nav-radius: 1.6rem;
+  --hero-grid-line: rgba(40, 40, 40, 0.025);
+  --hero-eyebrow: rgba(35, 35, 35, 0.62);
   --header-height: 4.75rem;
   --max-width: 76rem;
 }
@@ -34,6 +36,8 @@
   --nav-surface: rgba(61, 65, 66, 0.94);
   --nav-border: rgba(255, 255, 255, 0.08);
   --nav-shadow: 0 0.75rem 1.875rem rgba(12, 14, 14, 0.26);
+  --hero-grid-line: rgba(255, 255, 255, 0.035);
+  --hero-eyebrow: rgba(245, 242, 237, 0.66);
 }
 
 [data-theme="dark"] .brandmark,
@@ -45,7 +49,6 @@
 }
 
 [data-theme="dark"] .brandmark-descriptor,
-[data-theme="dark"] .message-label,
 [data-theme="dark"] .availability-status,
 [data-theme="dark"] .hero-work-link,
 [data-theme="dark"] .eyebrow,
@@ -83,8 +86,8 @@
   border-color: rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.018) 29%, transparent 52%, rgba(255, 255, 255, 0.035) 82%, rgba(255, 255, 255, 0.06) 100%),
-    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px),
     var(--surface);
   box-shadow: var(--shadow-card);
 }
@@ -544,6 +547,7 @@ a {
   --message-body-padding-bottom: clamp(2rem, 4vw, 3rem);
   --message-footer-height: 6rem;
   min-height: clamp(29.5rem, 58vh, 37rem);
+  position: relative;
   display: flex;
   flex-direction: column;
   color: var(--ink);
@@ -551,8 +555,8 @@ a {
   border-radius: var(--radius-xl);
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 29%, transparent 52%, rgba(255, 255, 255, 0.18) 82%, rgba(255, 255, 255, 0.3) 100%),
-    linear-gradient(rgba(40, 40, 40, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(40, 40, 40, 0.025) 1px, transparent 1px),
+    linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px),
     #faf8f4;
   background-size: 100% 100%, 28px 28px, 28px 28px, 100% 100%;
   box-shadow:
@@ -593,10 +597,6 @@ a {
     height: 100%;
     min-height: 0;
     max-height: 100%;
-  }
-
-  .message-top {
-    padding-top: var(--message-top-padding);
   }
 
   .message-body {
@@ -641,7 +641,6 @@ a {
   backface-visibility: hidden;
 }
 
-.message-top,
 .message-footer {
   display: flex;
   align-items: center;
@@ -650,18 +649,21 @@ a {
 }
 
 .message-top {
-  flex: 0 0 auto;
-  padding: var(--message-top-padding) clamp(1.45rem, 4vw, 3rem) 0;
+  position: absolute;
+  top: var(--message-top-padding);
+  right: clamp(1.45rem, 4vw, 3rem);
+  left: clamp(1.45rem, 4vw, 3rem);
+  z-index: 1;
 }
 
 .message-label {
   margin: 0;
+  color: var(--hero-eyebrow);
   font-size: clamp(0.72rem, 0.95vw, 0.82rem);
   font-weight: 500;
   letter-spacing: 0.2em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: rgba(35, 35, 35, 0.62);
 }
 
 .status-dot {
@@ -696,6 +698,10 @@ a {
 
 .hero-accent {
   color: #d8c3a5;
+}
+
+.final-outcome-phrase {
+  white-space: nowrap;
 }
 
 .outcome-phrase {
@@ -1697,14 +1703,14 @@ a {
     max-height: 100%;
   }
 
-  .message-top {
+  .message-body {
     padding-right: clamp(1.35rem, 3vw, 2.5rem);
     padding-left: clamp(1.35rem, 3vw, 2.5rem);
   }
 
-  .message-body {
-    padding-right: clamp(1.35rem, 3vw, 2.5rem);
-    padding-left: clamp(1.35rem, 3vw, 2.5rem);
+  .message-top {
+    right: clamp(1.35rem, 3vw, 2.5rem);
+    left: clamp(1.35rem, 3vw, 2.5rem);
   }
 
   .message-body h1 {
@@ -1997,18 +2003,14 @@ a {
     border-radius: 1.7rem;
   }
 
-  .message-top {
-    padding-top: var(--message-top-padding);
+  .status-dot {
+    width: 0.48rem;
+    height: 0.48rem;
   }
 
   .message-label {
     font-size: 0.68rem;
     letter-spacing: 0.16em;
-  }
-
-  .status-dot {
-    width: 0.48rem;
-    height: 0.48rem;
   }
 
   .message-footer {
@@ -2041,6 +2043,10 @@ a {
   }
 
   .outcome-phrase {
+    white-space: normal;
+  }
+
+  .final-outcome-phrase {
     white-space: normal;
   }
 
