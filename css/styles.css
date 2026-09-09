@@ -1184,6 +1184,14 @@ a {
   padding: clamp(5rem, 9vw, 8.5rem) 0;
 }
 
+.work-section {
+  padding-bottom: clamp(3.5rem, 5vw, 5rem);
+}
+
+#services {
+  padding-top: clamp(4rem, 7vw, 6.5rem);
+}
+
 .eyebrow {
   margin: 0 0 1rem;
   font-size: 0.76rem;
