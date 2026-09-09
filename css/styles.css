@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #f3f0eb;
   --surface: #faf8f4;
   --surface-soft: #eee9e1;
@@ -19,6 +20,148 @@
   --max-width: 76rem;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #353839;
+  --surface: #3d4142;
+  --surface-soft: #45494a;
+  --ink: #f5f2ed;
+  --muted: rgba(245, 242, 237, 0.68);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --shadow-soft: 0 1.5rem 4rem rgba(12, 14, 14, 0.26);
+  --shadow-card: 0 1.75rem 5rem rgba(12, 14, 14, 0.3);
+  --nav-surface: rgba(61, 65, 66, 0.94);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-shadow: 0 0.75rem 1.875rem rgba(12, 14, 14, 0.26);
+}
+
+[data-theme="dark"] .brandmark,
+[data-theme="dark"] .site-nav a,
+[data-theme="dark"] .header-cta,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .mobile-menu-toggle {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .brandmark-descriptor,
+[data-theme="dark"] .message-label,
+[data-theme="dark"] .availability-status,
+[data-theme="dark"] .hero-work-link,
+[data-theme="dark"] .eyebrow,
+[data-theme="dark"] .project-type,
+[data-theme="dark"] .service-number,
+[data-theme="dark"] .about-aside p,
+[data-theme="dark"] .tag-list li {
+  color: rgba(245, 242, 237, 0.66);
+}
+
+[data-theme="dark"] .site-header .site-nav a {
+  color: rgba(245, 242, 237, 0.76);
+}
+
+[data-theme="dark"] .site-header .site-nav a:hover,
+[data-theme="dark"] .site-header .site-nav a:focus-visible,
+[data-theme="dark"] .site-header .site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .header-cta {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .header-cta:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #353839;
+}
+
+[data-theme="dark"] .message-card {
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.018) 29%, transparent 52%, rgba(255, 255, 255, 0.035) 82%, rgba(255, 255, 255, 0.06) 100%),
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="dark"] .message-body h1 {
+  color: var(--ink);
+}
+
+[data-theme="dark"] .message-body p {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .message-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .hero-work-link {
+  color: rgba(245, 242, 237, 0.9);
+}
+
+[data-theme="dark"] .hero-work-arrow {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+[data-theme="dark"] .phone-editorial-caption {
+  color: rgba(245, 242, 237, 0.62);
+}
+
+[data-theme="dark"] .project-link {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--surface-soft);
+}
+
+[data-theme="dark"] .project-link:hover {
+  box-shadow: 0 2rem 4rem rgba(12, 14, 14, 0.32);
+}
+
+[data-theme="dark"] .project-meta {
+  background: linear-gradient(180deg, rgba(61, 65, 66, 0.2), rgba(61, 65, 66, 0.96) 25%);
+}
+
+[data-theme="dark"] .project-visual::before {
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 30%);
+}
+
+[data-theme="dark"] .project-type {
+  color: rgba(245, 242, 237, 0.62);
+}
+
+[data-theme="dark"] .services-secondary-copy,
+[data-theme="dark"] .additional-service-item p {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .tag-list li {
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .contact-section {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.06), transparent 22%),
+    linear-gradient(180deg, #3d4142 0%, #2f3233 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .site-header,
+  .header-inner,
+  .theme-toggle,
+  .message-card,
+  .project-link,
+  .project-meta,
+  .contact-section {
+    transition: none;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -36,6 +179,17 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
   background: var(--bg);
+}
+
+body,
+.site-header,
+.header-inner,
+.theme-toggle,
+.message-card,
+.project-link,
+.project-meta,
+.contact-section {
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 
 img {
@@ -209,6 +363,30 @@ a {
   display: none;
 }
 
+.theme-toggle {
+  display: none;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid rgba(48, 48, 48, 0.18);
+  border-radius: 50%;
+  background: transparent;
+  color: #303030;
+  cursor: pointer;
+}
+
+.theme-toggle-icon::before {
+  content: "\263E";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+[data-theme="dark"] .theme-toggle-icon::before {
+  content: "\2600";
+}
+
 @media (min-width: 48rem) {
   :root {
     --header-height: 5.75rem;
@@ -274,6 +452,10 @@ a {
   .site-nav a:focus-visible::after,
   .site-nav a[aria-current="page"]::after {
     transform: scaleX(1);
+  }
+
+  .theme-toggle {
+    display: inline-grid;
   }
 
   .header-cta {
@@ -1726,8 +1908,17 @@ a {
   .mobile-menu-toggle {
     display: grid;
     place-items: center;
-    margin-left: auto;
+    margin-left: 0;
     color: rgba(48, 48, 48, 0.92);
+    order: 3;
+  }
+
+  .theme-toggle {
+    display: inline-grid;
+    order: 2;
+    margin-left: auto;
+    width: 2.35rem;
+    height: 2.35rem;
   }
 
   .brandmark {
