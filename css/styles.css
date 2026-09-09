@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
@@ -1485,7 +1486,7 @@ a {
   .site-header {
     top: 0;
     padding-top: 0.3rem;
-    background: transparent;
+    background: var(--bg);
     border-bottom: 0;
     box-shadow: none;
     backdrop-filter: none;
@@ -1499,14 +1500,13 @@ a {
     overflow: visible;
     padding-top: 0.9rem;
     padding-bottom: 1.2rem;
-    background: transparent;
+    background: var(--bg);
   }
 
   .hero::before {
-    inset: 0 0 -3.6rem;
-    background:
-      radial-gradient(circle at 62% 72%, rgba(210, 175, 135, 0.05), transparent 40%),
-      radial-gradient(circle at 34% 18%, rgba(255, 255, 255, 0.18), transparent 46%);
+    background: none;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .header-inner {
