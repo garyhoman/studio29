@@ -16,6 +16,8 @@
   --nav-border: rgba(20, 20, 20, 0.06);
   --nav-shadow: 0 0.75rem 1.875rem rgba(30, 25, 20, 0.06);
   --nav-radius: 1.6rem;
+  --hero-card-surface: #faf8f4;
+  --hero-card-sheen: linear-gradient(120deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 29%, transparent 52%, rgba(255, 255, 255, 0.18) 82%, rgba(255, 255, 255, 0.3) 100%);
   --hero-grid-line: rgba(40, 40, 40, 0.025);
   --hero-eyebrow: rgba(35, 35, 35, 0.62);
   --header-height: 4.75rem;
@@ -36,7 +38,9 @@
   --nav-surface: rgba(61, 65, 66, 0.94);
   --nav-border: rgba(255, 255, 255, 0.08);
   --nav-shadow: 0 0.75rem 1.875rem rgba(12, 14, 14, 0.26);
-  --hero-grid-line: rgba(255, 255, 255, 0.035);
+  --hero-card-surface: #3d4142;
+  --hero-card-sheen: linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.018) 29%, transparent 52%, rgba(255, 255, 255, 0.035) 82%, rgba(255, 255, 255, 0.06) 100%);
+  --hero-grid-line: rgba(255, 255, 255, 0.04);
   --hero-eyebrow: rgba(245, 242, 237, 0.66);
 }
 
@@ -84,11 +88,6 @@
 [data-theme="dark"] .message-card {
   color: var(--ink);
   border-color: rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.018) 29%, transparent 52%, rgba(255, 255, 255, 0.035) 82%, rgba(255, 255, 255, 0.06) 100%),
-    linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px),
-    var(--surface);
   box-shadow: var(--shadow-card);
 }
 
@@ -554,10 +553,10 @@ a {
   border: 1px solid rgba(25, 25, 25, 0.045);
   border-radius: var(--radius-xl);
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.12) 29%, transparent 52%, rgba(255, 255, 255, 0.18) 82%, rgba(255, 255, 255, 0.3) 100%),
+    var(--hero-card-sheen),
     linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px),
-    #faf8f4;
+    var(--hero-card-surface);
   background-size: 100% 100%, 28px 28px, 28px 28px, 100% 100%;
   box-shadow:
     0 1.125rem 2.8125rem rgba(40, 32, 24, 0.06),
