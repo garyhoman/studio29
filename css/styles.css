@@ -580,6 +580,7 @@ a {
   --message-top-padding: clamp(1.6rem, 3.6vw, 2.75rem);
   --message-body-padding-top: clamp(2.3rem, 5vw, 4.75rem);
   --message-body-padding-bottom: clamp(2rem, 4vw, 3rem);
+  --message-body-offset: 0;
   --message-footer-height: 6rem;
   min-height: clamp(29.5rem, 58vh, 37rem);
   position: relative;
@@ -628,6 +629,7 @@ a {
     --message-top-padding: clamp(1.2rem, 2.5vw, 1.9rem);
     --message-body-padding-top: clamp(1.05rem, 2.4vw, 2rem);
     --message-body-padding-bottom: clamp(0.95rem, 2vw, 1.35rem);
+    --message-body-offset: 1rem;
     --message-footer-height: 4.7rem;
     height: 100%;
     min-height: 0;
@@ -718,6 +720,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transform: translateY(var(--message-body-offset));
   padding: var(--message-body-padding-top) clamp(1.45rem, 4vw, 3rem) var(--message-body-padding-bottom);
 }
 
