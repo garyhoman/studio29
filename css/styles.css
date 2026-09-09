@@ -1729,20 +1729,22 @@ a {
     height: auto;
     padding-top: 0;
     width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
+    gap: 0.6rem;
     perspective: 1400px;
     perspective-origin: center center;
     transform: translate3d(0, -0.9rem, 0);
   }
 
   .phone-editorial-caption {
-    position: absolute;
-    left: clamp(0.5rem, 2vw, 0.75rem);
-    top: 22%;
-    z-index: 2;
+    position: relative;
+    left: auto;
+    top: auto;
     display: grid;
     gap: 0.28rem;
-    margin: 0;
+    margin: 0 0 0 clamp(0.5rem, 2vw, 0.75rem);
     color: rgba(18, 18, 18, 0.62);
     font-size: clamp(0.5rem, 1.9vw, 0.58rem);
     font-weight: 560;
@@ -1757,12 +1759,13 @@ a {
     content: "";
     width: 2.7rem;
     height: 1px;
-    margin-top: 0.9rem;
+    margin-top: 0.6rem;
     background: currentColor;
     opacity: 0.65;
   }
 
   .phone-shell {
+    align-self: center;
     width: min(75vw, 18.675rem);
     aspect-ratio: 393 / 852;
     max-height: none;
