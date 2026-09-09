@@ -1484,7 +1484,7 @@ a {
 
   .site-header {
     top: 0;
-    padding-top: 0.8rem;
+    padding-top: 0.3rem;
     background: transparent;
     border-bottom: 0;
     box-shadow: none;
@@ -1497,7 +1497,7 @@ a {
     height: auto;
     display: block;
     overflow: visible;
-    padding-top: 1.45rem;
+    padding-top: 0.9rem;
     padding-bottom: 1.2rem;
     background: transparent;
   }
@@ -1699,7 +1699,7 @@ a {
     grid-column: 1;
     align-self: start;
     gap: 0.2rem;
-    margin: 0;
+    margin: clamp(1.125rem, 6vw, 1.75rem) 0 0;
     color: rgba(18, 18, 18, 0.62);
     font-size: clamp(0.5rem, 1.9vw, 0.58rem);
     font-weight: 560;
