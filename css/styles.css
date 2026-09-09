@@ -820,6 +820,10 @@ a {
   display: none;
 }
 
+.phone-editorial-featured {
+  display: none;
+}
+
 .hero-device::after {
   content: "";
   position: absolute;
@@ -2107,11 +2111,21 @@ a {
 
   .phone-editorial-caption::after {
     content: "";
+    order: 1;
     width: 2.7rem;
     height: 1px;
     margin-top: 0.52rem;
     background: currentColor;
     opacity: 0.65;
+  }
+
+  .phone-editorial-featured {
+    display: block;
+    order: 2;
+    margin-top: 0.18rem;
+    font-size: 0.94em;
+    font-weight: 600;
+    letter-spacing: 0.18em;
   }
 
   .phone-shell {
