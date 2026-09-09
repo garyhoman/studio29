@@ -73,12 +73,10 @@
   color: var(--ink);
 }
 
-[data-theme="dark"] .theme-toggle,
 [data-theme="dark"] .header-cta {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-[data-theme="dark"] .theme-toggle:hover,
 [data-theme="dark"] .header-cta:hover {
   border-color: var(--ink);
   background: var(--ink);
@@ -372,21 +370,70 @@ a {
   width: 2.25rem;
   height: 2.25rem;
   padding: 0;
-  border: 1px solid rgba(48, 48, 48, 0.18);
+  border: 1px solid transparent;
   border-radius: 50%;
   background: transparent;
-  color: #303030;
+  color: rgba(40, 40, 40, 0.88);
   cursor: pointer;
 }
 
+.theme-toggle-icon {
+  position: relative;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.theme-toggle-icon::before,
+.theme-toggle-icon::after {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+}
+
 .theme-toggle-icon::before {
-  content: "\263E";
-  font-size: 1rem;
-  line-height: 1;
+  inset: 0.08rem;
+  border: 1.5px solid currentColor;
+}
+
+.theme-toggle-icon::after {
+  top: -0.03rem;
+  right: -0.08rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  background: var(--nav-surface);
+}
+
+[data-theme="dark"] .theme-toggle {
+  border-color: transparent;
+  background: transparent;
+  color: rgba(245, 242, 237, 0.92);
 }
 
 [data-theme="dark"] .theme-toggle-icon::before {
-  content: "\2600";
+  inset: 0.27rem;
+  border: 0;
+  background: currentColor;
+}
+
+[data-theme="dark"] .theme-toggle-icon::after {
+  inset: 0.06rem;
+  width: auto;
+  height: auto;
+  border: 1px solid currentColor;
+  background: transparent;
+}
+
+.theme-toggle:hover {
+  background: rgba(48, 48, 48, 0.06);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.mobile-nav-cta {
+  display: none;
 }
 
 @media (min-width: 48rem) {
@@ -1872,7 +1919,7 @@ a {
 
   .site-header {
     top: 0;
-    padding-top: 0.3rem;
+    padding-top: 0.9rem;
     background: transparent;
     border-bottom: 0;
     box-shadow: none;
@@ -1885,7 +1932,7 @@ a {
     height: auto;
     display: block;
     overflow: visible;
-    padding-top: 0.9rem;
+    padding-top: 0.65rem;
     padding-bottom: 1.2rem;
     background: var(--bg);
   }
@@ -1966,6 +2013,16 @@ a {
     padding: 0.9rem 1.15rem;
     font-size: 0.98rem;
     color: rgba(48, 48, 48, 0.86);
+  }
+
+  .site-nav .mobile-nav-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.35rem;
+    padding: 1rem 1.15rem 0.9rem;
+    border-top: 1px solid var(--nav-border);
+    font-weight: 600;
   }
 
   .site-nav a[aria-current="page"] {

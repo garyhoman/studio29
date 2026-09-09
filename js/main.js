@@ -9,14 +9,27 @@ const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 const themePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 const getSystemTheme = () => (themePreference.matches ? "dark" : "light");
+const getThemeColor = (theme) => (theme === "dark" ? "#353839" : "#F3F0EB");
+
+const updateThemeColor = (theme) => {
+  const color = getThemeColor(theme);
+
+  document.documentElement.style.backgroundColor = color;
+  if (document.body) {
+    document.body.style.backgroundColor = color;
+  }
+
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", color);
+    // Re-attaching prompts Safari to re-evaluate the browser chrome color.
+    document.head.append(themeColorMeta);
+  }
+};
 
 const applyTheme = (theme, persist = false) => {
   const nextTheme = theme === "dark" ? "dark" : "light";
   document.documentElement.dataset.theme = nextTheme;
-
-  if (themeColorMeta) {
-    themeColorMeta.setAttribute("content", nextTheme === "dark" ? "#353839" : "#F3F0EB");
-  }
+  updateThemeColor(nextTheme);
 
   if (themeToggle) {
     themeToggle.setAttribute("aria-label", nextTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");

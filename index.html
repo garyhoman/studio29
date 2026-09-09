@@ -9,8 +9,10 @@
       try {
         const savedTheme = localStorage.getItem("studio29-theme");
         const theme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const themeColor = theme === "dark" ? "#353839" : "#F3F0EB";
         document.documentElement.dataset.theme = theme;
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#353839" : "#F3F0EB");
+        document.documentElement.style.backgroundColor = themeColor;
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", themeColor);
       } catch {
         document.documentElement.dataset.theme = "light";
       }
@@ -49,6 +51,7 @@
         <a href="#services">Services</a>
         <a href="#work">Work</a>
         <a href="#contact">Contact</a>
+        <a class="mobile-nav-cta" href="#contact">Start a project <span aria-hidden="true">&#8599;</span></a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
         <span class="theme-toggle-icon" aria-hidden="true"></span>
