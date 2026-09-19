@@ -1921,7 +1921,12 @@ a {
   }
 
   .brandmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.16rem;
     font-size: 1.02rem;
+    line-height: 1;
     color: rgba(48, 48, 48, 0.92);
   }
 
@@ -1930,7 +1935,17 @@ a {
   }
 
   .brandmark-mobile {
-    display: inline;
+    display: block;
+    order: 1;
+  }
+
+  .brandmark-descriptor {
+    display: block;
+    order: 2;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    line-height: 1.2;
   }
 
   .site-nav {
